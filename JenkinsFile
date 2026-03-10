@@ -16,7 +16,7 @@ pipeline {
         stage('Push to GitHub') {
             steps {
                     sh '''
-                        sudo su - ansible -c ansible-playbook -i hosts nginx.yml
+                        sudo su - ansible -c "ansible-playbook -i hosts nginx.yml"
                     '''
                 }
         }
