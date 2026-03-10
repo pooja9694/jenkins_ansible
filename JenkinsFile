@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO = "https://github.com/pooja9694/jenkins_ansible.gitt"
+        GIT_REPO = "https://github.com/pooja9694/jenkins_ansible.git"
         BRANCH = "main"
     }
 
