@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    environment {
+        GIT_REPO = "https://github.com/username/repository.git"
+        BRANCH = "main"
+    }
+
+    stages {
+
+        stage('Clone Repository') {
+            steps {
+                git branch: "${BRANCH}", url: "${GIT_REPO}"
+            }
+        }
+        stage('Push to GitHub') {
+            steps {
+                    sh '''
+                        sudo su - ansible -c ansible-playbook -i hosts nginx.yml
+                    '''
+                }
+        }
+    }
+}
